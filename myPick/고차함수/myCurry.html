@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" language="javascript" src="./dogs.js"></script>
+  <script>
+    console.log(dogs);
+    function getDogNames(dogs, filterFunc) {
+      return dogs
+      .filter(filterFunc)
+      .map(dog => dog['이름'])
+    }
+    // console.log(getDogNames(dogs, dog => dog['무게'] < 20));
+
+    const weightCheck = weight => dog => dog['무게'] < weight;
+    console.log(getDogNames(dogs, weightCheck(50)));
+
+    const identityCheck = field => value => dog => dog[field] === value;
+    const colorCheck = identityCheck('색상');
+    const stateCheck = identityCheck('지역');
+
+    console.log(getDogNames(dogs, colorCheck('검정색')));
+    console.log(getDogNames(dogs, stateCheck('위스콘신')));
+
+    function allFilters(dogs, ...checks) {
+      return dogs
+      .filter(dog => checks.every(check => check(dog)))
+      .map(dog => dog['이름']);
+    }
+
+    function anyFilters(dogs, ...checks) {
+      return dogs
+      .filter(dog => checks.some(check => check(dog)))
+      .map(dog => dog['이름']);
+    }
+    const all_black_Kansas = allFilters(dogs, colorCheck('검정색'), stateCheck('캔자스'));
+    const all_brown_weight = allFilters(dogs, weightCheck(20), colorCheck('검정색'));
+    const some_brown_weight = anyFilters(dogs, weightCheck(20), colorCheck('갈색'));
+    console.log(all_black_Kansas);
+    console.log(all_brown_weight);
+    console.log(some_brown_weight);
+
+    console.log('END');
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

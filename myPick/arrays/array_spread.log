@@ -1,0 +1,62 @@
+const cart = [
+  {
+    name: 'The Foundation Triology',
+    price: 19.99,
+    discount: false,
+  },
+  {
+    name: 'Godel, Escher, Bach',
+    price: 15.99,
+    discount: false,
+  },
+  {
+    name: 'Red Mars',
+    price: 5.99,
+    discount: true,
+  },
+];
+undefined
+const reward = {
+  name: 'Guide to Science Fiction',
+  discount: true,
+  price: 0,
+};
+
+undefined
+function addGift(cart){
+    if(cart.length > 2) {
+        return [...cart, reward];
+    }
+    return cart;
+}
+undefined
+function summarizeCartSpread(cart){
+    const cartWithReward = addGift(cart);
+    const discountable = cart.filter(item => item.discount);
+    if(discountable.length > 1 ) {
+        return{
+            error: '할인상품은 하나만 주문';
+VM13335:6 Uncaught SyntaxError: Unexpected token ';'
+function summarizeCartSpread(cart){
+    const cartWithReward = addGift(cart);
+    const discountable = cart.filter(item => item.discount);
+    if(discountable.length > 1 ) {
+        return{
+            error: '할인상품은 하나만 주문',
+        };
+    }
+    return {
+        discounts: discountable.length,
+        items: cartWithReward.length,
+        cart: cartWithReward,
+    }
+}
+undefined
+cart
+(3) [{…}, {…}, {…}]0: {name: 'The Foundation Triology', price: 19.99, discount: false}1: {name: 'Godel, Escher, Bach', price: 15.99, discount: false}2: {name: 'Red Mars', price: 5.99, discount: true}length: 3[[Prototype]]: Array(0)
+const newCart = summarizeCartSpread(cart);
+undefined
+newCart
+{discounts: 1, items: 4, cart: Array(4)}cart: Array(4)0: {name: 'The Foundation Triology', price: 19.99, discount: false}1: {name: 'Godel, Escher, Bach', price: 15.99, discount: false}2: {name: 'Red Mars', price: 5.99, discount: true}3: {name: 'Guide to Science Fiction', discount: true, price: 0}length: 4[[Prototype]]: Array(0)discounts: 1items: 4[[Prototype]]: Object
+cart
+(3) [{…}, {…}, {…}]0: {name: 'The Foundation Triology', price: 19.99, discount: false}1: {name: 'Godel, Escher, Bach', price: 15.99, discount: false}2: {name: 'Red Mars', price: 5.99, discount: true}length: 3[[Prototype]]: Array(0)

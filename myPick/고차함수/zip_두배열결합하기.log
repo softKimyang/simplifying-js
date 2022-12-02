@@ -1,0 +1,6 @@
+const zip = (...left) => (...right) => {
+  return left.map((item, i) => [item, right[i]]);
+};
+undefined
+zip('kansas', 'wisconsin', 'new mexico')('meadowlark', 'robin', 'roadrunner');
+(3) [Array(2), Array(2), Array(2)]0: (2) ['kansas', 'meadowlark']1: (2) ['wisconsin', 'robin']2: (2) ['new mexico', 'roadrunner']length: 3[[Prototype]]: Array(0)

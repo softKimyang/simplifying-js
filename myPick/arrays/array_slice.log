@@ -1,0 +1,46 @@
+// splice는 원본 배열이 변경된다.
+// removeItemSlice()처럼 slice후, concat으로 나머지 배열항목을 만들어 리턴하면 원본배열은 그대로이다.
+
+function removeItmSplice(items, removable) {
+    const index = items.indexOf(removable);
+    items.splice(index, 1);
+    return items;
+}
+undefined
+const books = ['practical js', 'moby dick', 'java in Action'];
+undefined
+books;
+(3) ['practical js', 'moby dick', 'java in Action']
+const recent = removeItmSplice(books, 'moby dick');
+undefined
+booksl
+VM9257:1 Uncaught ReferenceError: booksl is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM9257:1
+books
+(2) ['practical js', 'java in Action']
+recent
+(2) ['practical js', 'java in Action']
+const lastbook = removeItmSplice(books, 'practical js');
+undefined
+lastbook
+['java in Action']
+books
+['java in Action']
+
+const book2 = ['aaa', 'bbb', 'ccc'];
+undefined
+book2
+(3) ['aaa', 'bbb', 'ccc']
+
+function removeItemSlice(items, removable) {
+    const index = items.indexOf(removable);
+    return items.slice(0, index).concat(items.slice(index + 1));
+}
+undefined
+const book_slice1 = removeItemSlice(book2, 'ccc');
+undefined
+book_slice1
+(2) ['aaa', 'bbb']
+book2
+(3) ['aaa', 'bbb', 'ccc']

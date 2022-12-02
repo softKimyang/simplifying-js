@@ -1,0 +1,23 @@
+const dogPair = [
+    ['name', 'Don'],
+    ['color', 'black'],
+    ];
+undefined
+dogPair[0];
+(2) ['name', 'Don']
+function getName(dog) {
+    return dog.find(attribute => {
+        return attribute[0] === 'name';
+    })[1];
+}
+undefined
+getName(dogPair);
+'Don'
+function getColor(dog) {
+    return dog.find(attribute => {
+        return attribute[0] === 'color';
+    })[1];
+}
+undefined
+getColor(dogPair);
+'black'
